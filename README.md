@@ -1,6 +1,6 @@
 # Snotel
 
-TODO: Write a gem description
+This is a gem for a Ruby client to access SNOTEL data from the NRCS.
 
 ## Installation
 
@@ -18,7 +18,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Get all station data
+
+```ruby
+Snotel.get_station_data # => [ ... ]
+```
+
+### Daily Snowfall Data
+
+```ruby
+# Get the last day
+Snotel.daily(:snowbird) # => [{:date=>"2014-09-13", :snow_water_equivalent_in=>"0.0", :change_in_snow_water_equivalent_in=>"0.0", :snow_depth_in=>nil, :change_in_snow_depth_in=>nil}]
+
+# Get the last week
+Snotel.daily(:snowbird, 7) # => [ ... ]
+```
+
+### Hourly Snowfall Data
+
+```ruby
+# Get the last 24 hours
+Snotel.daily(:lookout) # => [ ... ]
+
+# Get the last 72 hours
+Snotel.daily(:lookout, 72) # => [ ... ]
+```
+
+## Acknowledgements
+
+This gem is essentially an abstraction of the awesome work done by the developers for the
+[powderlin.es api](http://powderlin.es/api.html): <https://github.com/bobbymarko/powderlines-api>
 
 ## Contributing
 
@@ -27,3 +56,5 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+Crafted with <3 by [John Otander](http://johnotander.com).

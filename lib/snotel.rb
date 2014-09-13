@@ -1,5 +1,6 @@
 require 'snotel/version'
 require 'snotel/stations'
+require 'snotel/tokens'
 
 require 'net/http'
 require 'json'
@@ -8,6 +9,18 @@ require 'csv'
 module Snotel
   def self.get_station_data
     Snotel::Stations::ALL
+  end
+
+  def self.get_triplet_from_token(token)
+    Snotel::Tokens::TOKENS[token] || raise("Token #{ token } not found.")
+  end
+
+  def self.daily(token, readings = 1)
+    get_daily_data(get_triplet_from_token(token), readings-1)  # Subtract to account for delta.
+  end
+
+  def self.hourly(token, readings = 24)
+    get_daily_data(get_triplet_from_token(token), readings-1)  # Subtract to account for delta.
   end
 
   def self.get_daily_data(triplet, readings)
