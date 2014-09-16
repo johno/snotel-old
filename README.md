@@ -38,10 +38,10 @@ Snotel.daily(:snowbird, 7) # => [ ... ]
 
 ```ruby
 # Get the last 24 hours
-Snotel.daily(:lookout) # => [ ... ]
+Snotel.hourly(:lookout) # => [ ... ]
 
 # Get the last 72 hours
-Snotel.daily(:lookout, 72) # => [ ... ]
+Snotel.hourly(:lookout, 72) # => [ ... ]
 ```
 
 ## Acknowledgements
