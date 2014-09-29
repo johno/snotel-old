@@ -39,7 +39,12 @@ module Snotel
 
     lines = CSV.parse(remove_comments(json))
 
-    keys  = lines.delete(lines.first).map do |key|
+    if lines.empty?
+      puts "WARNING: No data found for #{ triplet }."
+      return
+    end
+
+    keys = lines.delete(lines.first).map do |key|
       key.gsub(/[^0-9a-z ]+/i, '').gsub(/ /, '_').downcase.to_sym
     end
 
