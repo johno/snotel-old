@@ -1,5 +1,7 @@
 # Snotel
 
+[![Build Status](https://travis-ci.org/firstchair-io/snotel.svg?branch=master)](https://travis-ci.org/firstchair-io/snotel)
+
 This is a gem for a Ruby client to access SNOTEL data from the NRCS.
 
 ## Installation
