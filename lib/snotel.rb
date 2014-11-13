@@ -20,7 +20,7 @@ module Snotel
   end
 
   def self.hourly(token, readings = 24)
-    get_daily_data(get_triplet_from_token(token), readings-1)  # Subtract to account for delta.
+    get_hourly_data(get_triplet_from_token(token), readings-1)  # Subtract to account for delta.
   end
 
   def self.get_daily_data(triplet, readings)
