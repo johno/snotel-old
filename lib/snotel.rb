@@ -52,7 +52,9 @@ module Snotel
   end
 
   def self.parse_csv_data(keys, lines)
-    lines.map { |values| Hash[keys.zip(values)] }
+    lines.map do |values|
+      hash = Hash[keys.zip(values.map { |v| v || 0 })]
+    end
   end
 
   def self.build_uri(triplet, readings, granularity = :daily)
